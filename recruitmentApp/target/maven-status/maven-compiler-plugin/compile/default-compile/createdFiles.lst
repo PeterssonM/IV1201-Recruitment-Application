@@ -1,4 +1,8 @@
+com\kth\iv1201\recruitmentApp\domain\CompetenceProfile.class
+com\kth\iv1201\recruitmentApp\domain\Competence.class
+com\kth\iv1201\recruitmentApp\domain\Role.class
 com\kth\iv1201\recruitmentApp\application\ApplicationService.class
 com\kth\iv1201\recruitmentApp\util\Util.class
 com\kth\iv1201\recruitmentApp\ProjectApplication.class
-com\kth\iv1201\recruitmentApp\repository\UserRepository.class
+com\kth\iv1201\recruitmentApp\domain\Person.class
+com\kth\iv1201\recruitmentApp\domain\Availability.class
