@@ -45,8 +45,19 @@ public class AppController {
     }
 
     @PostMapping("/login")
-    public String submitLoginForm() {
-        return "loginSuccess";
+    public String submitLoginForm(@RequestParam("username") String username, @RequestParam("password") String password, Model model) {
+
+        Person person = personRepository.findByUsernameAndPassword(username, password);
+
+        if (person != null && person.getPassword().equals(password)) {
+            return "loginSuccess";
+        } else {
+            System.out.println("\n \n \n");
+            System.out.println("Log in failed!!!");
+            System.out.println("\n \n \n");
+            model.addAttribute("error", "Invalid username or password");
+            return "login";
+        }
     }
 
     @GetMapping("/register")
