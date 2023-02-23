@@ -9,12 +9,18 @@ import java.util.List;
  * The persistent class for the person database table.
  * 
  */
+
+ /* OLD */
+//@Entity
+//@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+//public class Person implements Serializable {
 @Entity
-@NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
+@Table(name = "person")
 public class Person implements Serializable {
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //New
 	@Column(name="person_id")
 	private Integer personId;
 
@@ -45,6 +51,16 @@ public class Person implements Serializable {
 
 	public Person() {
 	}
+
+	public Person(String name, String surname, String pnr, String email, String password, Role role, String username) {
+        this.name = name;
+        this.surname = surname;
+        this.pnr = pnr;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.username = username;
+    }
 
 	public Integer getPersonId() {
 		return this.personId;
