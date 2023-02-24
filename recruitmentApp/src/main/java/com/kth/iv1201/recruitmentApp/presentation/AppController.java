@@ -65,6 +65,7 @@ public class AppController {
         return "register";
     }
 
+    
     @PostMapping("/register")
     public String submitRegisterForm(
             @RequestParam("firstName") String firstName,
@@ -83,6 +84,12 @@ public class AppController {
             person.setEmail(email);
             person.setUsername(username);
             person.setPassword(password);
+
+            // Det som saknas är felmeddelanden vi dfel input
+            //if ((firstName == null) || (lastName == null) || (email == null) || (username == null) || (password == null)) {
+                
+            //}
+            
             personRepository.save(person);
         } catch (Exception e) {
             System.out.println("\n \n \n");
