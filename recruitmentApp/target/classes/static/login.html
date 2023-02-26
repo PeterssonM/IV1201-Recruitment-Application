@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Tivoli - Login</title>
+    <link type="text/css" rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="navbar">
+      <img src="logo.png" alt="Logo">
+    </div>
+
+    <!-- Login form -->
+    <div class="login-form">
+      <h2>Login</h2>
+      <form action="login" method="post">
+        <table>
+          <tr>
+            <td><label for="user-name">Username</label></td>
+            <td><input type="text" name="username"></input></td>
+          </tr>
+          <tr>
+            <td><label for="user-email">Password</label></td>
+            <td><input type="password" name="password"></input></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Submit"></input></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
+

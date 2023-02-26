@@ -1,0 +1,109 @@
+/* Set the background color of the body and remove margin and padding */
+body {
+    background-color: #f5f5dc;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the navigation bar */
+  .navbar {
+    background-color: #f8cd89;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  /* Style the logo image */
+  .navbar img {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  /* Style the "Please log in" text */
+  .navbar .admin {
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    right: 90px; 
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Style the welcome text */
+  .welcome {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 24px;
+    color: #333333;
+  }
+  
+  /* Style the button container */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Style the button */
+  .button {
+    border: none;
+    border-radius: 30px;
+    background-color: #ffffffdc;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  /* Style the button on hover */
+  .button:hover {
+    background-color: #ffffff70;
+    color: #000000c1;
+  }
+  
+  /* Style the login form */
+  form {
+    margin-top: 80px;
+    text-align: center;
+  }
+  
+  /* Style the login form input fields */
+  input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffffffdc;
+    font-size: 16px;
+  }
+  
+  /* Style the login form submit button */
+  input[type="submit"] {
+    background-color: #ffffffdc;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  /* Style the login form submit button on hover */
+  input[type="submit"]:hover {
+    background-color: #ffffff70;
+    color: #000000c1;
+  }
+  
