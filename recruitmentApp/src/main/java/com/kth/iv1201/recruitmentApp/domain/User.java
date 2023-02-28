@@ -87,6 +87,10 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public static Object withUsername(String username2) {
+        return null;
+    }
     
     
 
