@@ -15,26 +15,30 @@
     <main layout:fragment="content">
       <div class="outer">
         <h1>Please Sign up the register</h1>
-        <form action="register" method="post">
+        <form action="/register" th:object="${person}" method="post">
           <table>
             <tr>
-              <td><label for="user-firstName">First name</label></td>
-              <td><input type="text" name="firstName"></td>
+              <td><label for="user-firstName">First name:</label></td>
+              <td><input type="text" name="name"></td>
             </tr>
             <tr>
-              <td><label for="user-lastName">Last name</label></td>
-              <td><input type="text" name="lastName"></td>
+              <td><label for="user-lastName">Last name:</label></td>
+              <td><input type="text" name="surname"></td>
             </tr>
             <tr>
-              <td><label for="user-email">Email</label></td>
+              <td><label for="user-pnr">Personal Number:</label></td>
+              <td><input type="text" name="pnr"></td>
+            </tr>
+            <tr>
+              <td><label for="user-email">Email:</label></td>
               <td><input type="email" name="email"></td>
             </tr>
             <tr>
-              <td><label for="user-name">Username</label></td>
+              <td><label for="user-name">Username:</label></td>
               <td><input type="text" name="username"></td>
             </tr>
             <tr>
-              <td><label for="user-password">Password</label></td>
+              <td><label for="user-password">Password:</label></td>
               <td><input type="password" name="password"></td>
             </tr>
             <tr>

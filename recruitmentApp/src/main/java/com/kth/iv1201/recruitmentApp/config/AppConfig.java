@@ -30,4 +30,6 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware{
                 .setCachePeriod(cachePeriodForStaticFilesInSecs).resourceChain(true)
                 .addResolver(new PathResourceResolver());
     }
+
+
 }
