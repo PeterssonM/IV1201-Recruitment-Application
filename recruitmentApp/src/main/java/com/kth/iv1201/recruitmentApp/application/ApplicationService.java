@@ -11,10 +11,13 @@ import com.kth.iv1201.recruitmentApp.repository.CompetenceRepository;
 import com.kth.iv1201.recruitmentApp.repository.PersonRepository;
 import com.kth.iv1201.recruitmentApp.repository.RoleRepository;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Service
-public class ApplicationService {
+public class ApplicationService implements UserDetailsService {
 
     @Autowired
     private AvailabilityRepository availabilityRepository;
@@ -39,9 +42,20 @@ public class ApplicationService {
         role.setRoleId(2);
         person.setRole(role);
 
-        System.out.println("\n\n\n2) " + person.toString() + "\n\n");
+        System.out.println("\n2) " + person.toString());
         personRepository.save(person);
         return person;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        //flera users kan ha samma username. Ev returnera alla matchande usernames och sedan kolla matchande lösenord?
+        Person person = personRepository.findByUsername(username);
+        if(person == null){
+            throw new UsernameNotFoundException(username);
+        }
+        UserDetailsPrincipal userDetailsPrincipal = new UserDetailsPrincipal(person);
+        return userDetailsPrincipal;
     }
     
     

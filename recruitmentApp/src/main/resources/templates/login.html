@@ -17,6 +17,10 @@
       <form action="login" method="post">
         <table>
           <tr>
+            <td></td>
+            <td th:if="${param.error}">Invalid username and/or password.</td>
+          </tr>
+          <tr>
             <td><label for="user-name">Username</label></td>
             <td><input type="text" name="username"></input></td>
           </tr>

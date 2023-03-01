@@ -10,6 +10,8 @@ import com.kth.iv1201.recruitmentApp.domain.Person;
 public interface PersonRepository extends JpaRepository<Person, Integer> {
     
     Person findByName(@Param("name") String name);
+
+    Person findByUsername(String username);
     
     Person findByUsernameAndPassword(String username, String password);
 }

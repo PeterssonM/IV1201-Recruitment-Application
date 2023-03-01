@@ -21,18 +21,22 @@ public class Person implements Serializable {
 	@Column(name="person_id")
 	private Integer personId;
 
-	//@NotBlank(message = "Email is mandatory") Sätt att inte acceptera null elr tomma variabler.
+	@NotBlank(message = "Email is mandatory")
 	private String email;
 
-	//@NotBlank(message = "Name is mandatory")
+	@NotBlank(message = "First name is mandatory")
 	private String name;
 
+	@NotBlank(message = "Password is mandatory")
 	private String password;
 
+	@NotBlank(message = "Personal identification number is mandatory")
 	private String pnr;
 
+	@NotBlank(message = "Last name is mandatory")
 	private String surname;
 
+	@NotBlank(message = "Username is mandatory")
 	private String username;
 
 	//bi-directional many-to-one association to Availability

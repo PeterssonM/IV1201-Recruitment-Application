@@ -44,9 +44,9 @@ public class AppController {
             // Handle validation errors
             return "register";
         } else{
-            System.out.println("\n\n\n1) " + person.toString() + "\n\n");
+            System.out.println("\n1) " + person.toString());
             applicationService.createPerson(person);
-            return "loginSuccess";
+            return "login";
         }
     }
 
