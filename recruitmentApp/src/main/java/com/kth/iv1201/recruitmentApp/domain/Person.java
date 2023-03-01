@@ -4,6 +4,12 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -13,7 +19,7 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Person.findAll", query="SELECT p FROM Person p")
-public class Person implements Serializable {
+public class Person implements Serializable, UserDetails {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -78,7 +84,8 @@ public class Person implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	@Override
 	public String getPassword() {
 		return this.password;
 	}
@@ -103,6 +110,7 @@ public class Person implements Serializable {
 		this.surname = surname;
 	}
 
+	@Override
 	public String getUsername() {
 		return this.username;
 	}
@@ -163,12 +171,36 @@ public class Person implements Serializable {
 		this.role = role;
 	}
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role.getName());
+        return Collections.singletonList(authority);
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 	@Override
 	public String toString() {
 		return "Person [personId=" + personId + ", email=" + email + ", name=" + name + ", password=" + password
 				+ ", pnr=" + pnr + ", surname=" + surname + ", username=" + username + "]";
 	}
-
-	
 
 }

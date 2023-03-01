@@ -7,9 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.kth.iv1201.recruitmentApp.application.ApplicationService;
+import com.kth.iv1201.recruitmentApp.application.PersonServiceImpl;
 import com.kth.iv1201.recruitmentApp.domain.Person;
 
 
@@ -17,7 +18,7 @@ import com.kth.iv1201.recruitmentApp.domain.Person;
 public class AppController {
 
     @Autowired
-    private ApplicationService applicationService;
+    private PersonServiceImpl personServiceImpl;
 
     @GetMapping("/")
     public String serveHomePage() {
@@ -39,15 +40,14 @@ public class AppController {
         return "register";
     }
     @PostMapping("/register")
-    public String submitRegisterForm(@Valid Person person, BindingResult result){
+    public String submitRegisterForm(@ModelAttribute("person") @Valid Person person, BindingResult result){
         if (result.hasErrors()) {
-            // Handle validation errors
             return "register";
-        } else{
+        } 
+        else{
             System.out.println("\n1) " + person.toString());
-            applicationService.createPerson(person);
+            personServiceImpl.saveUser(person);
             return "login";
         }
     }
-
 }
