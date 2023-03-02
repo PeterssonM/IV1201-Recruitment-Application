@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <meta charset="UTF-8">
-    <title>Tivoli</title>
+    <title> LoginSuccess </title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/recruitment.css}">
   </head>
   <body>
+
     <!-- Navigation bar -->
     <div class="navbar">
       <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
       <div class="admin">Please log in</div>
     </div>
-
-    <!-- Welcome text -->
-    <div class="welcome">
-      <h1>SUCCESS!</h1>
-      <p>Login succesfull.</p>
-    </div>
+        
+    <main layout:fragment="content">
+      <div class="outer">
+        <h1>LoginSuccess</h1>
+        <form action="/loginSuccess" th:object="${person}" method="post">
+          <table>
+            <tr>
+              <td><label for="user-firstName">LoginSuccess</label></td>
+              <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><input type="submit" value="Submit"></td>
+            </tr>
+          </table>          
+          </form>
+      </div>
+    </main>
   </body>
 </html>

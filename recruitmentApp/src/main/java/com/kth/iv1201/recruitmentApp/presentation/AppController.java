@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.kth.iv1201.recruitmentApp.application.PersonServiceImpl;
+import com.kth.iv1201.recruitmentApp.application.PersonService;
 import com.kth.iv1201.recruitmentApp.domain.Person;
 
 
@@ -18,7 +18,7 @@ import com.kth.iv1201.recruitmentApp.domain.Person;
 public class AppController {
 
     @Autowired
-    private PersonServiceImpl personServiceImpl;
+    private PersonService personService;
 
     @GetMapping("/")
     public String serveHomePage() {
@@ -46,9 +46,14 @@ public class AppController {
         } 
         else{
             System.out.println("\n1) " + person.toString());
-            personServiceImpl.saveUser(person);
+            personService.saveUser(person);
             return "login";
         }
+    }
+
+    @GetMapping("/apply")
+    public String showApplyForm() {
+        return "apply";
     }
 
     @GetMapping("/error")
@@ -58,5 +63,10 @@ public class AppController {
     @PostMapping("/error")
     public String submitErrorForm() {
             return "error";
+    }
+
+    @GetMapping("/loginSuccess")
+    public String showLoginSuccessForm() {
+        return "loginSuccess";
     }
 }

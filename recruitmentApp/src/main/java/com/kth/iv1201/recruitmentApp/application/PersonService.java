@@ -14,7 +14,7 @@ import com.kth.iv1201.recruitmentApp.repository.PersonRepository;
 import com.kth.iv1201.recruitmentApp.util.UserAlreadyExistException;
 
 @Service
-public class PersonServiceImpl implements UserDetailsService {
+public class PersonService implements UserDetailsService {
 
     @Autowired
     private PersonRepository personRepository;
@@ -39,8 +39,11 @@ public class PersonServiceImpl implements UserDetailsService {
         Person person = personRepository.findByUsername(username);
         if(person == null)
             throw new UsernameNotFoundException(username);
-        else
-            return person; 
+        else{
+            System.out.println("returned this person: " + person.toString());
+            return person;
+        }
+             
     }
 
     

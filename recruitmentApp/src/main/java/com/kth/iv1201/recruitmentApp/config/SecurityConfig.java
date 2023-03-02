@@ -11,34 +11,34 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.kth.iv1201.recruitmentApp.application.PersonServiceImpl;
+import com.kth.iv1201.recruitmentApp.application.PersonService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Autowired
-    private PersonServiceImpl personService;
+    private PersonService personService;
 
     @Bean
     public PasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
-    @Override
+    /*@Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder());
         daoAuthenticationProvider.setUserDetailsService(personService);
         return daoAuthenticationProvider;
-    }
+    }*/
 
-    @Override
+    /*@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
@@ -47,5 +47,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/loginSuccess")
             .and()
             .logout().logoutSuccessUrl("/logout");
+    }*/
+    @Autowired
+    private CustomAuthenticationSuccessHandler authenticationSuccessHandler;
+
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+                .antMatchers("/", "/index").permitAll()
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .successHandler(authenticationSuccessHandler)
+                .permitAll()
+                .and()
+            .logout()
+                .permitAll();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+            .userDetailsService(personService)
+            .passwordEncoder(bCryptPasswordEncoder());
     }
 }
