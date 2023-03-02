@@ -65,8 +65,15 @@ public class AppController {
             return "error";
     }
 
-    @GetMapping("/loginSuccess")
+    /*@GetMapping(value = {"/css/recruitment.css", "/loginSuccess"})
+    public String showLoginSuccessForm() {
+        return "loginSuccess";
+    }*/
+
+    @GetMapping("/css/recruitment.css")
     public String showLoginSuccessForm() {
         return "loginSuccess";
     }
+
+
 }

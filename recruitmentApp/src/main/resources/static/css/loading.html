@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title> Loading </title>
+    <link type="text/css" rel="stylesheet" th:href="@{/recruitment.css}">
+  </head>
+  <body>
+
+    <!-- Navigation bar -->
+    <div class="navbar">
+      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
+      <div class="admin">Loading</div>
+    </div>
+        
+    <main layout:fragment="content">
+      <div class="outer">
+        <h1>Loading... Please wait</h1>
+        <form action="/loginSuccess" th:object="${person}" method="post">     
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
