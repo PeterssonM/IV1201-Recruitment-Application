@@ -25,20 +25,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /*@Override
+    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());
-    }*/
+    }
 
-    /*@Bean
+    @Bean
     DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(bCryptPasswordEncoder());
         daoAuthenticationProvider.setUserDetailsService(personService);
         return daoAuthenticationProvider;
-    }*/
+    }
 
-    /*@Override
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
@@ -47,31 +47,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/loginSuccess")
             .and()
             .logout().logoutSuccessUrl("/logout");
-    }*/
-    @Autowired
-    private CustomAuthenticationSuccessHandler authenticationSuccessHandler;
-
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-            .authorizeRequests()
-                .antMatchers("/", "/index").permitAll()
-                .anyRequest().authenticated()
-                .and()
-            .formLogin()
-                .loginPage("/login")
-                .successHandler(authenticationSuccessHandler)
-                .permitAll()
-                .and()
-            .logout()
-                .permitAll();
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .userDetailsService(personService)
-            .passwordEncoder(bCryptPasswordEncoder());
     }
 }
