@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.kth.iv1201.recruitmentApp.application.PersonServiceImpl;
+import com.kth.iv1201.recruitmentApp.application.PersonService;
 import com.kth.iv1201.recruitmentApp.domain.Person;
 
 
@@ -18,7 +18,7 @@ import com.kth.iv1201.recruitmentApp.domain.Person;
 public class AppController {
 
     @Autowired
-    private PersonServiceImpl personServiceImpl;
+    private PersonService personService;
 
     @GetMapping("/")
     public String serveHomePage() {
@@ -26,37 +26,43 @@ public class AppController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String serveLoginPage() {
         return "login";
     }
     @PostMapping("/login")
-    public String submitLoginForm() {
+    public String retriveLoginPage() {
             return "loginSuccess";
     }
 
     @GetMapping("/register")
-    public String showRegisterForm(Model model){
+    public String serveRegisterPage(Model model){
         model.addAttribute("person", new Person());
         return "register";
     }
     @PostMapping("/register")
-    public String submitRegisterForm(@ModelAttribute("person") @Valid Person person, BindingResult result){
+    public String retriveRegisterPage(@ModelAttribute("person") @Valid Person person, BindingResult result){
         if (result.hasErrors()) {
             return "register";
         } 
         else{
             System.out.println("\n1) " + person.toString());
-            personServiceImpl.saveUser(person);
+            personService.saveUser(person);
             return "login";
         }
     }
 
-    @GetMapping("/error")
-    public String showErrorForm() {
-        return "error";
+    @GetMapping("/loginSuccess")
+    public String serveLoginSuccessPage() {
+        return "loginSuccess";
     }
-    @PostMapping("/error")
-    public String submitErrorForm() {
-            return "error";
+
+    @GetMapping("/secret")
+    public String serveSecretPage() {
+        return "secret";
+    }
+
+    @GetMapping("/error")
+    public String serveErrorPage() {
+        return "error";
     }
 }
