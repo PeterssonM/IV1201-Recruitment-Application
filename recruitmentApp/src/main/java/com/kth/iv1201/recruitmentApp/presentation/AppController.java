@@ -50,4 +50,13 @@ public class AppController {
             return "login";
         }
     }
+
+    @GetMapping("/error")
+    public String showErrorForm() {
+        return "error";
+    }
+    @PostMapping("/error")
+    public String submitErrorForm() {
+            return "error";
+    }
 }

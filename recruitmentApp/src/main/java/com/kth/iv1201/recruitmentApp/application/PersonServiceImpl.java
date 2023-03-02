@@ -36,7 +36,6 @@ public class PersonServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        //flera users kan ha samma username. Ev returnera alla matchande usernames och sedan kolla matchande lösenord?
         Person person = personRepository.findByUsername(username);
         if(person == null)
             throw new UsernameNotFoundException(username);
