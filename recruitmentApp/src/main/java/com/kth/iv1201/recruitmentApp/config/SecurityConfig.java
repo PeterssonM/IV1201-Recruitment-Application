@@ -47,17 +47,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("print this?");
         http
             .formLogin()
-                .loginPage("/login")
-                .permitAll()
+                .loginPage("/login").permitAll()
                 .and()
             .logout()
                 .logoutSuccessUrl("/logout")
                 .and()
             .authorizeRequests()
                 .antMatchers("/", "/register").permitAll()
+                .antMatchers("/application").hasRole("applicant")
+                .antMatchers("/viewApplications").hasRole("recruiter")
                 .anyRequest().authenticated();
                 
     }

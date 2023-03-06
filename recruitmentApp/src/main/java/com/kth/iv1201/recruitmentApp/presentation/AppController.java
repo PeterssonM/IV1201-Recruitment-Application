@@ -51,6 +51,23 @@ public class AppController {
         }
     }
 
+    @GetMapping("/application")
+    public String serveApplicationPage() {
+        return "application";
+    }
+
+    @GetMapping("/viewApplications")
+    public String serveViewApplicationsPage() {
+        return "viewApplications";
+    }
+
+    @GetMapping("/error")
+    public String serveErrorPage() {
+        return "error";
+    }
+
+    /*---Used only for testing---*/
+
     @GetMapping("/loginSuccess")
     public String serveLoginSuccessPage() {
         return "loginSuccess";
@@ -61,8 +78,5 @@ public class AppController {
         return "secret";
     }
 
-    @GetMapping("/error")
-    public String serveErrorPage() {
-        return "error";
-    }
+
 }

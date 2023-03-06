@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html 
+  lang="en" 
+  xmlns:th="http://www.thymeleaf.org" 
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+  
+
   <head>
     <meta charset="UTF-8">
     <title>Tivoli</title>
@@ -9,7 +15,7 @@
     <!-- Navigation bar -->
     <div class="navbar">
       <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
-      <div class="admin">Please log in</div>
+      <p class="admin"><span th:text="${#authentication.name}"></span> <span th:text="${#authentication.authorities}"></span></p>
     </div>
 
     <!-- Welcome text -->
@@ -17,10 +23,24 @@
       <h1>Welcome to Tivoli!</h1>
       <p>This is the starting page of the website.</p>
       <div class="button-container">
-        <button class="button" onclick="location.href='/login'">Login!</button>
-        <button class="button" onclick="location.href='/register'">Register as a new user!</button>
+        <div th:if="${not #authorization.expression('isAuthenticated()')}">
+          <button class="button" onclick="location.href='/login'">Login!</button>
+          <button class="button" onclick="location.href='/register'">Register as a new user!</button>
+        </div>              
         <button class="button" onclick="location.href='/secret'">Secrets await...</button>
       </div>
     </div>
+
+    <div th:if="${#authorization.expression('hasRole(''applicant'')')}">
+      <button class="button" onclick="location.href='/application-form'">Application Form!</button>
+    </div>
+    <div th:if="${#authorization.expression('hasRole(''recruiter'')')}">
+      <button class="button" onclick="location.href='/view-application-forms'">View Application Forms!</button>
+    </div>
+
+    <!--Debugging-->
+    <div th:text="${#authentication.getPrincipal()}"></div>
+    
+
   </body>
 </html>
