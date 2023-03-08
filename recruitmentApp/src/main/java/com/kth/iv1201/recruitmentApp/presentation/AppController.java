@@ -1,8 +1,19 @@
 package com.kth.iv1201.recruitmentApp.presentation;
 
+import java.io.IOException;
+import java.util.Collection;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,62 +32,80 @@ public class AppController {
     private PersonService personService;
 
     @GetMapping("/")
-    public String serveHomePage() {
+    public String index() {
         return "index";
     }
 
     @GetMapping("/login")
-    public String serveLoginPage() {
+    public String showLoginForm() {
         return "login";
     }
+
     @PostMapping("/login")
-    public String retriveLoginPage() {
+    public String submitLoginForm() {
             return "loginSuccess";
+        
     }
 
     @GetMapping("/register")
-    public String serveRegisterPage(Model model){
-        model.addAttribute("person", new Person());
+    public String showRegisterForm() {
         return "register";
     }
+
+    
+
     @PostMapping("/register")
-    public String retriveRegisterPage(@ModelAttribute("person") @Valid Person person, BindingResult result){
+    public String submitRegisterForm(@ModelAttribute("person") @Valid Person person, BindingResult result){
         if (result.hasErrors()) {
             return "register";
         } 
         else{
-            System.out.println("\n1) " + person.toString());
+            System.out.println("\n 1) " + person.toString());
             personService.saveUser(person);
-            return "login";
+            return "loginSuccess";
         }
     }
 
     @GetMapping("/application")
-    public String serveApplicationPage() {
+    public String showApplicationForm() {
         return "application";
     }
 
     @GetMapping("/viewApplications")
-    public String serveViewApplicationsPage() {
+    public String showViewApplicationsForm() {
         return "viewApplications";
     }
 
+    @GetMapping("/logout")
+    public String showLogoutForm() {
+        return "logout";
+    }
+
     @GetMapping("/error")
-    public String serveErrorPage() {
+    public String showErrorForm() {
         return "error";
     }
 
     /*---Used only for testing---*/
 
     @GetMapping("/loginSuccess")
-    public String serveLoginSuccessPage() {
+    public String showLoginSuccessPage() {
         return "loginSuccess";
     }
 
     @GetMapping("/secret")
-    public String serveSecretPage() {
+    public String showSecretForm() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        System.out.println("\n \n " + "User authorities2222: " + authorities + "\n \n ");
+        // rest of your code
+
+
         return "secret";
     }
+
+    
 
 
 }

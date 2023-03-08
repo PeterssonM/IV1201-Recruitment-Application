@@ -23,10 +23,16 @@
       <h1>Welcome to Tivoli!</h1>
       <p>This is the starting page of the website.</p>
       <div class="button-container">
+        <!-- Ask user to log in -->
         <div th:if="${not #authorization.expression('isAuthenticated()')}">
           <button class="button" onclick="location.href='/login'">Login!</button>
           <button class="button" onclick="location.href='/register'">Register as a new user!</button>
-        </div>              
+        </div>
+        <!-- Ask user to log out -->
+        <div th:if="${#authorization.expression('isAuthenticated()')}">
+          <button class="button" onclick="location.href='/logout'">Logout</button>
+        </div>
+        <!-- secret page -->                
         <button class="button" onclick="location.href='/secret'">Secrets await...</button>
       </div>
       <div th:if="${#authorization.expression('hasRole(''applicant'')')}">
@@ -41,7 +47,7 @@
 
     <!--Debugging-->
     <div th:text="${#authentication.getPrincipal()}"></div>
-    
+
 
   </body>
 </html>
