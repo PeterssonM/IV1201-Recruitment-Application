@@ -3,5 +3,6 @@ application.properties
 *.zip
 
 ## Maven Target
-target/**
+target/
+!target/.gitkeep
 *.class
