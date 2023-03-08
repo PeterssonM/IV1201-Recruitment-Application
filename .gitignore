@@ -3,4 +3,5 @@ application.properties
 *.zip
 
 ## Maven Target
-target/
+target/**
+*.class
