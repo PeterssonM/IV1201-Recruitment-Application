@@ -1,4 +1,6 @@
 ## Manual ignore 
 application.properties
-*.class
 *.zip
+
+## Maven Target
+target/
