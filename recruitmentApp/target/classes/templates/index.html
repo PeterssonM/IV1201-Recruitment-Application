@@ -29,14 +29,15 @@
         </div>              
         <button class="button" onclick="location.href='/secret'">Secrets await...</button>
       </div>
+      <div th:if="${#authorization.expression('hasRole(''applicant'')')}">
+        <button class="button" onclick="location.href='/application'">Application Form!</button>
+      </div>
+      <div th:if="${#authorization.expression('hasRole(''recruiter'')')}">
+        <button class="button" onclick="location.href='/viewApplications'">View Application Forms!</button>
+      </div>
     </div>
 
-    <div th:if="${#authorization.expression('hasRole(''applicant'')')}">
-      <button class="button" onclick="location.href='/application-form'">Application Form!</button>
-    </div>
-    <div th:if="${#authorization.expression('hasRole(''recruiter'')')}">
-      <button class="button" onclick="location.href='/view-application-forms'">View Application Forms!</button>
-    </div>
+    
 
     <!--Debugging-->
     <div th:text="${#authentication.getPrincipal()}"></div>
