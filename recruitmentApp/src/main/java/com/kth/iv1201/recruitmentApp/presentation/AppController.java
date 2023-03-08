@@ -76,7 +76,7 @@ public class AppController {
         return "viewApplications";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/mylogout")
     public String showLogoutForm() {
         return "logout";
     }
