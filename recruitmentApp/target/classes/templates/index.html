@@ -29,10 +29,10 @@
         </div>              
         <button class="button" onclick="location.href='/secret'">Secrets await...</button>
       </div>
-      <div th:if="${#authorization.expression('hasRole(''applicant'')')}">
+      <div th:if="${#authorization.expression('hasAuthority(''applicant'')')}">
         <button class="button" onclick="location.href='/application'">Application Form!</button>
       </div>
-      <div th:if="${#authorization.expression('hasRole(''recruiter'')')}">
+      <div th:if="${#authorization.expression('hasAuthority(''recruiter'')')}">
         <button class="button" onclick="location.href='/viewApplications'">View Application Forms!</button>
       </div>
     </div>
