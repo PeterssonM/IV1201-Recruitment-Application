@@ -1,2 +1,4 @@
 ## Manual ignore 
 application.properties
+*.class
+*.zip
