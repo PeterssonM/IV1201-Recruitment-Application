@@ -1,5 +1,7 @@
 package com.kth.iv1201.recruitmentApp.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -45,4 +47,11 @@ public class PersonService implements UserDetailsService {
             return person; 
         }
     }
+
+
+    public List<Person> getAllPersons() {
+        return personRepository.findAll();
+    }
+
+    
 }

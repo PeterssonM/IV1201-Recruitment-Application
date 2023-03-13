@@ -15,15 +15,20 @@
       <table>
         <thead>
           <tr>
+            <th>Person_id</th>
             <th>Name</th>
             <th>Surname</th>
+            <th>competence_profile_id</th>
+            <th>competence_name</th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="person : ${people}">
-            <td th:text="${person.name}"></td>
+            <td th:text="${person.id}"></td>
             <td th:text="${person.name}"></td>
             <td th:text="${person.surname}"></td>
+            <td th:text="${competence_profile.competence_id}"></td>
+            <td th:text="${competence_id.name}"></td>
           </tr>
         </tbody>
       </table>

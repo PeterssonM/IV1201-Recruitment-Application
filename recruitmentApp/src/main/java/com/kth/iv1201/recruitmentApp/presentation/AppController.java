@@ -1,5 +1,7 @@
 package com.kth.iv1201.recruitmentApp.presentation;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,14 +53,13 @@ public class AppController {
         }
     }
 
-    @GetMapping("/application")
-    public String serveApplicationPage() {
-        return "application";
-    }
 
-    @GetMapping("/viewApplications")
-    public String serveViewApplicationsPage() {
-        return "viewApplications";
+    @GetMapping("/application")
+    public String serveViewApplicationsPage(Model model) {
+        List<Person> people = personService.getAllPersons();
+        model.addAttribute("people", people);
+
+        return "viewPersons";
     }
 
     @GetMapping("/error")

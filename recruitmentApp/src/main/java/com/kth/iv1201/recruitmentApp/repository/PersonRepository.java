@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.kth.iv1201.recruitmentApp.domain.Person;
 
+import java.util.List;
+
 @Repository
 public interface PersonRepository extends JpaRepository<Person, Integer> {
     
@@ -16,5 +18,10 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
 
     Person findByEmail(String email);
 
+    @Override
+    List<Person> findAll();
+
+    @Override
+    List<Person> 
 }
 
