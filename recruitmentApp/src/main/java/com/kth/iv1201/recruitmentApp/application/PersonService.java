@@ -29,7 +29,6 @@ public class PersonService implements UserDetailsService {
         role.setRoleId(2);
         person.setRole(role);
 
-        System.out.println("\n2) " + person.toString());
         personRepository.save(person);
         return person;
     }
