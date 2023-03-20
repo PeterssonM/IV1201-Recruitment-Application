@@ -12,6 +12,20 @@
 
     <div class="welcome">
       <h1>View All Applications!</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="person : ${people}">
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.surname}"></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

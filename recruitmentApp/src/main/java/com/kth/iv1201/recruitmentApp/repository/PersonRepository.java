@@ -1,5 +1,7 @@
 package com.kth.iv1201.recruitmentApp.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +17,9 @@ public interface PersonRepository extends JpaRepository<Person, Integer> {
     Person findByUsernameAndPassword(String username, String password);
 
     Person findByEmail(String email);
+
+    @Override
+    List<Person> findAll();
 
 }
 
