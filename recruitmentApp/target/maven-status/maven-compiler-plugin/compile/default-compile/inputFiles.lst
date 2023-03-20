@@ -6,8 +6,11 @@ C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\repository\AvailabilityRepository.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\repository\PersonRepository.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\application\ApplicationService.java
+C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\application\AppService.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\config\ThymeleafConfig.java
+C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\repository\ApplicationRepository.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\config\AppConfig.java
+C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\domain\Application.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\repository\CompetenceRepository.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\domain\Competence.java
 C:\Users\danie\IV1201_Project\IV1201-Recruitment-Application\recruitmentApp\src\main\java\com\kth\iv1201\recruitmentApp\util\UserAlreadyExistException.java

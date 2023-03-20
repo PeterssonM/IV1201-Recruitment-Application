@@ -3,6 +3,7 @@ package com.kth.iv1201.recruitmentApp.application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kth.iv1201.recruitmentApp.repository.ApplicationRepository;
 import com.kth.iv1201.recruitmentApp.repository.AvailabilityRepository;
 import com.kth.iv1201.recruitmentApp.repository.CompetenceProfileRepository;
 import com.kth.iv1201.recruitmentApp.repository.CompetenceRepository;
@@ -27,6 +28,9 @@ public class ApplicationService {
     
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private ApplicationRepository applicationRepository;
 
     
 }

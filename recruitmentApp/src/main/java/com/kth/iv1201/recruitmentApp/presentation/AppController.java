@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.kth.iv1201.recruitmentApp.application.AppService;
 import com.kth.iv1201.recruitmentApp.application.PersonService;
+import com.kth.iv1201.recruitmentApp.domain.Application;
 import com.kth.iv1201.recruitmentApp.domain.Person;
 
 
@@ -21,6 +23,8 @@ public class AppController {
 
     @Autowired
     private PersonService personService;
+    @Autowired
+    private AppService appService;
 
     @GetMapping("/")
     public String serveHomePage() {
@@ -58,11 +62,20 @@ public class AppController {
         return "application";
     }
 
-    @GetMapping("/viewApplications")
+   /*  @GetMapping("/viewApplications")
     public String serveViewApplicationsPage(Model model) {
 
         List<Person> people = personService.getAllPersons();
         model.addAttribute("people", people);
+
+        return "viewPersons";
+    }*/
+
+    @GetMapping("/viewApplications")
+    public String serveViewApplicationsPage(Model model) {
+
+        List<Application> applications = appService.getAllApplications();
+        model.addAttribute("applications", applications);
 
         return "viewApplications";
     }
