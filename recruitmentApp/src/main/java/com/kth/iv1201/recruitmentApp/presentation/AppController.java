@@ -45,7 +45,7 @@ public class AppController {
             return "register";
         } 
         else{
-            System.out.println("\n1) " + person.toString());
+            //System.out.println("\n1) " + person.toString());
             personService.saveUser(person);
             return "login";
         }

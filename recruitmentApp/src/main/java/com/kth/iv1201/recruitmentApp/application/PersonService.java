@@ -26,10 +26,10 @@ public class PersonService implements UserDetailsService {
         person.setPassword(encoder.encode(person.getPassword()));
         
         Role role = new Role();
-        role.setRoleId(2);
+        role.setRoleId(1);
         person.setRole(role);
 
-        System.out.println("\n2) " + person.toString());
+        //System.out.println("\n2) " + person.toString());
         personRepository.save(person);
         return person;
     }
