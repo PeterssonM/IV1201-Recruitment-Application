@@ -26,7 +26,7 @@ public class Application {
     private Date toDate;
     
     @Column(name = "years_of_experience")
-    private Integer yearsOfExperience;
+    private float yearsOfExperience;
     
     @Column(name = "competence_id")
     private Integer competenceId;
@@ -34,9 +34,12 @@ public class Application {
     @Column(name = "person_id")
     private Integer personId;
 
+    @Column(name = "status")
+    private String status;
+
     public Application() {}
     
-    public Application(String name, String surname, Date fromDate, Date toDate, Integer yearsOfExperience, Integer competenceId, Integer personId) {
+    public Application(String name, String surname, Date fromDate, Date toDate, float yearsOfExperience, Integer competenceId, Integer personId, String status) {
         this.name = name;
         this.surname = surname;
         this.fromDate = fromDate;
@@ -44,6 +47,7 @@ public class Application {
         this.yearsOfExperience = yearsOfExperience;
         this.competenceId = competenceId;
         this.personId = personId;
+        this.status = status;
     }
         
     public Integer getId() {
@@ -86,11 +90,11 @@ public class Application {
         this.toDate = toDate;
     }
 
-    public Integer getYearsOfExperience() {
+    public float getYearsOfExperience() {
         return yearsOfExperience;
     }
 
-    public void setYearsOfExperience(Integer yearsOfExperience) {
+    public void setYearsOfExperience(float yearsOfExperience) {
         this.yearsOfExperience = yearsOfExperience;
     }
 
@@ -108,5 +112,13 @@ public class Application {
 
     public void setPersonId(Integer personId) {
         this.personId = personId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

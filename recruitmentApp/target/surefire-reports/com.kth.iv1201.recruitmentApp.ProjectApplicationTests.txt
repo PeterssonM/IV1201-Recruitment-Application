@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.kth.iv1201.recruitmentApp.ProjectApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.417 s - in com.kth.iv1201.recruitmentApp.ProjectApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.77 s - in com.kth.iv1201.recruitmentApp.ProjectApplicationTests

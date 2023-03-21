@@ -8,6 +8,8 @@
   <body>
     <!-- Navigation bar -->
     <div class="navbar">
+      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
+      <p class="admin"><span th:text="${#authentication.name}"></span> <span th:text="${#authentication.authorities}"></span></p>
     </div>
 
     <div class="welcome">
@@ -17,12 +19,16 @@
           <tr>
             <th>Name</th>
             <th>Surname</th>
+            <th>Status</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="app : ${applications}">
             <td th:text="${app.name}"></td>
             <td th:text="${app.surname}"></td>
+            <td th:text="${app.status}"></td>
+            <td> <button type="button">View full applicaiton!</button> </td>
           </tr>
         </tbody>
       </table>
