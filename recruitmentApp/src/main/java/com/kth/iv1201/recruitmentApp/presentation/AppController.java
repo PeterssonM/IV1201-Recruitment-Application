@@ -51,7 +51,6 @@ public class AppController {
             return "register";
         } 
         else{
-            //System.out.println("\n1) " + person.toString());
             personService.saveUser(person);
             return "login";
         }
@@ -61,15 +60,6 @@ public class AppController {
     public String serveApplicationPage() {
         return "application";
     }
-
-   /*  @GetMapping("/viewApplications")
-    public String serveViewApplicationsPage(Model model) {
-
-        List<Person> people = personService.getAllPersons();
-        model.addAttribute("people", people);
-
-        return "viewPersons";
-    }*/
 
     @GetMapping("/viewApplications")
     public String serveViewApplicationsPage(Model model) {
