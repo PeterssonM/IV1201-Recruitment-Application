@@ -22,6 +22,16 @@ public class PersonService implements UserDetailsService {
 
     public Person saveUser(Person person) throws UserAlreadyExistException {
 
+        if(personRepository.findByPnr(person.getPnr()) != null)
+            throw new UserAlreadyExistException("Pnr: " + person.getEmail() + ". Is already in use.");
+
+        if(personRepository.findByEmail(person.getEmail()) != null)
+            throw new UserAlreadyExistException("Email: " + person.getEmail() + ". Is already in use.");
+ 
+        if(personRepository.findByUsername(person.getUsername()) != null)
+            throw new UserAlreadyExistException("Username: " + person.getUsername() + ". Is already in use.");
+        
+
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         person.setPassword(encoder.encode(person.getPassword()));
         
