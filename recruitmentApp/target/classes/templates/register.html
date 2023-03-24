@@ -11,7 +11,7 @@
       <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
       <div class="admin">Please log in</div>
     </div>
-        
+    
     <main th:fragment="content">
       <div class="outer">
         <h1>Please Sign up the register</h1>
@@ -28,14 +28,17 @@
             <tr>
               <td><label for="user-pnr">Personal Number:</label></td>
               <td><input type="text" th:field="*{pnr}" required /></td>
+              <td th:if="${errorMsg != null and fieldName == 'pnr'}" th:text="${errorMsg}" class="error-message"></td>
             </tr>
             <tr>
               <td><label for="user-email">Email:</label></td>
               <td><input type="email" th:field="*{email}" required /></td>
+              <td th:if="${errorMsg != null and fieldName == 'email'}" th:text="${errorMsg}" class="error-message"></td>
             </tr>
             <tr>
               <td><label for="user-name">Username:</label></td>
               <td><input type="text" th:field="*{username}" required /></td>
+              <td th:if="${errorMsg != null and fieldName == 'username'}" th:text="${errorMsg}" class="error-message"></td>
             </tr>
             <tr>
               <td><label for="user-password">Password:</label></td>
@@ -49,5 +52,6 @@
         </form>
       </div>
     </main>    
+  
   </body>
 </html>
