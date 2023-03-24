@@ -8,9 +8,10 @@
 
     <!-- Navigation bar -->
     <div class="navbar">
-      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
-      <div class="admin">Please log in</div>
+      <img th:src="@{/logo/logo.png}" alt="Logo">
+      <p class="admin"><span th:text="${#authentication.name}"></span> <span th:text="${#authentication.authorities}"></span></p>
     </div>
+    
         
     <main th:fragment="content">
       <div class="outer">

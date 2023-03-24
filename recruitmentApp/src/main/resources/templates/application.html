@@ -8,7 +8,10 @@
   <body>
     <!-- Navigation bar -->
     <div class="navbar">
+      <img th:src="@{/logo/logo.png}" alt="Logo">
+      <p class="admin"><span th:text="${#authentication.name}"></span> <span th:text="${#authentication.authorities}"></span></p>
     </div>
+    
 
     <div class="welcome">
       <h1>Application form!</h1>

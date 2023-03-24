@@ -4,24 +4,39 @@
   xmlns:th="http://www.thymeleaf.org" 
   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 >
-  
 
   <head>
     <meta charset="UTF-8">
     <title>Tivoli</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/recruitment.css}">
   </head>
+
   <body>
     <!-- Navigation bar -->
     <div class="navbar">
-      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
+      <img th:src="@{/logo/logo.png}" alt="Logo">
       <p class="admin"><span th:text="${#authentication.name}"></span> <span th:text="${#authentication.authorities}"></span></p>
     </div>
 
     <!-- Welcome text -->
     <div class="welcome">
-      <h1>Welcome to Tivoli!</h1>
-      <p>This is the starting page of the website.</p>
+      <h1>Welcome to <b>Tivoli!</b> amusement park!</h1>
+      <img th:src="@{/logo/logo.png}" alt="Logo">
+
+      <p>This is <b>Tivoli!</b></p>
+      <p>A web application created for applicants to applies for a position within the company</p>
+      <p>and for recruiters to manage your application.</p>
+      <br />
+      <p>This is Daniel Mebrahtu Redi and Maximilian Petersson</p>
+      <p>IV1201 VT23 Architecture and design of global applications project.</p>
+      <br />
+			<br />
+      <p>To get started using Tivolis web application</p>
+      <p>We would like you to log in with your Tivoli account. If you do</p>
+      <p>not have a Tivoli account, you can easily register as a new user </p> 
+      <p>using the button bellow.</p>
+      <p>Once logged in, we would recommend that you take your the time to freely</p>
+			<p>explore the Tivoli web application.</p>
       <div class="button-container">
         <div th:if="${not #authorization.expression('isAuthenticated()')}">
           <button class="button" onclick="location.href='/login'">Login!</button>
@@ -37,11 +52,18 @@
       </div>
     </div>
 
-    
-
     <!--Debugging-->
     <div th:text="${#authentication.getPrincipal()}"></div>
-    
 
+    <div class="contact">
+      <br />
+      <br />
+      <h8>Contact details:</h8>
+      <br />
+      <h9><b>Daniel Mebrahtu Redi</b>, danielmr@kth.se </h9>
+      <br />
+      <h9><b>Maximilian Petersson</b>, maxpet@kth.se</h9>
+      <br />
+    </div>
   </body>
 </html>
