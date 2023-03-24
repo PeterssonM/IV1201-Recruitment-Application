@@ -16,6 +16,7 @@ import com.kth.iv1201.recruitmentApp.application.AppService;
 import com.kth.iv1201.recruitmentApp.application.PersonService;
 import com.kth.iv1201.recruitmentApp.domain.Application;
 import com.kth.iv1201.recruitmentApp.domain.Person;
+import com.kth.iv1201.recruitmentApp.util.UserAlreadyExistException;
 
 
 @Controller
@@ -46,7 +47,7 @@ public class AppController {
         return "register";
     }
     @PostMapping("/register")
-    public String retriveRegisterPage(@ModelAttribute("person") @Valid Person person, BindingResult result){
+    public String retriveRegisterPage(@ModelAttribute("person") @Valid Person person, BindingResult result) throws UserAlreadyExistException{
         if (result.hasErrors()) {
             return "register";
         } 
@@ -56,6 +57,7 @@ public class AppController {
             return "login";
         }
     }
+
 
     @GetMapping("/application")
     public String serveApplicationPage() {
