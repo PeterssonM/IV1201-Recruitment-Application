@@ -1,5 +1,7 @@
 package com.kth.iv1201.recruitmentApp.application;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,9 +28,10 @@ public class PersonService implements UserDetailsService {
         person.setPassword(encoder.encode(person.getPassword()));
         
         Role role = new Role();
-        role.setRoleId(2);
+        role.setRoleId(1);
         person.setRole(role);
 
+        //System.out.println("\n2) " + person.toString());
         personRepository.save(person);
         return person;
     }
@@ -43,5 +46,9 @@ public class PersonService implements UserDetailsService {
             System.out.println("The person found: " + person.toString());
             return person; 
         }
+    }
+
+    public List<Person> getAllPersons() {
+        return personRepository.findAll();
     }
 }
