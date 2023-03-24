@@ -42,12 +42,13 @@
           <button class="button" onclick="location.href='/login'">Login!</button>
           <button class="button" onclick="location.href='/register'">Register as a new user!</button>
         </div>              
-        <button class="button" onclick="location.href='/secret'">Secrets await...</button>
       </div>
       <div th:if="${#authorization.expression('hasAuthority(''applicant'')')}">
+        <button class="button" onclick="location.href='/secret'">Secrets await...</button>
         <button class="button" onclick="location.href='/application'">Application Form!</button>
       </div>
       <div th:if="${#authorization.expression('hasAuthority(''recruiter'')')}">
+        <button class="button" onclick="location.href='/secret'">Secrets await...</button>
         <button class="button" onclick="location.href='/viewApplications'">View Application Forms!</button>
       </div>
     </div>
