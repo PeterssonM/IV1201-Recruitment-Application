@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title> Tivoli - Sign up</title>
-    <link type="text/css" rel="stylesheet" th:href="@{/css/recruitment.css}">
-  </head>
-  <body>
+<html xmlns:th="http://www.thymeleaf.org"> 
 
-    <!-- Navigation bar -->
-    <div class="navbar">
-      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
-    </div>
-    
-    <main th:fragment="content">
-      <div class="outer">
-        <h1>Please Sign up the register</h1>
-        <form th:action="@{/register}" th:object="${person}" method="post">
-          <table>
+  <body>
+    <!-- Header -->
+    <header th:replace="../static/fragments/header :: header"></header>
+
+    <!-- Navigation -->
+    <nav th:replace="../static/fragments/navbar :: navbar"></nav>
+
+    <!-- Content -->
+    <div class="register-form">
+      <form th:action="@{/register}" th:object="${person}" method="post">
+        <table>
+          <thead>
             <tr>
-              <td><label for="user-firstName">First name:</label></td>
+              <td><h2>Register</h2></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
               <td><input type="text" th:field="*{name}" placeholder="First name" required /></td>
             </tr>
             <tr>
-              <td><label for="user-lastName">Last name:</label></td>
               <td><input type="text" th:field="*{surname}" placeholder="Last name" required /></td>
             </tr>
+            <tr th:if="${errorMsg != null and fieldName == 'pnr'}">
+              <td th:text="${errorMsg}" class="error-message"></td>
+            </tr>
             <tr>
-              <td><label for="user-pnr">Personal number:</label></td>
               <td><input type="text" th:field="*{pnr}" placeholder="Personal number" required /></td>
-              <td th:if="${errorMsg != null and fieldName == 'pnr'}" th:text="${errorMsg}" class="error-message"></td>
+            </tr>
+            <tr th:if="${errorMsg != null and fieldName == 'email'}">
+              <td th:text="${errorMsg}" class="error-message"></td>
             </tr>
             <tr>
-              <td><label for="user-email">Email:</label></td>
               <td><input type="email" th:field="*{email}" placeholder="Email" required /></td>
-              <td th:if="${errorMsg != null and fieldName == 'email'}" th:text="${errorMsg}" class="error-message"></td>
+            </tr>
+            <tr th:if="${errorMsg != null and fieldName == 'username'}">
+              <td th:text="${errorMsg}" class="error-message"></td>
             </tr>
             <tr>
-              <td><label for="user-name">Username:</label></td>
               <td><input type="text" th:field="*{username}" placeholder="Username" required /></td>
-              <td th:if="${errorMsg != null and fieldName == 'username'}" th:text="${errorMsg}" class="error-message"></td>
             </tr>
             <tr>
-              <td><label for="user-password">Password:</label></td>
               <td><input type="password" th:field="*{password}" placeholder="Password" required /></td>
             </tr>
             <tr>
-              <td></td>
-              <td><input type="submit" value="Submit"/></td>
+              <td><button type="submit">Submit</button></td>
             </tr>
             <tr>
-              <td></td>
               <td><a href="/login">Login to excisting account.</a></td>
             </tr>
-          </table>          
-        </form>
-      </div>
-    </main>    
+          </tbody>
+        </table>          
+      </form>
+    </div>
+
+      <!-- Footer -->
+    <footer th:replace="../static/fragments/footer :: footer"></footer>
   
   </body>
 </html>

@@ -1,43 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8">
-    <title>Tivoli - Login</title>
-    <link type="text/css" rel="stylesheet" th:href="@{/css/recruitment.css}">
-  </head>
-  <body>
-    <!-- Navigation bar -->
-    <div class="navbar">
-      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
-    </div>
+<html xmlns:th="http://www.thymeleaf.org"> 
 
-    <!-- Login form -->
+  <body>
+    <!-- Header -->
+    <header th:replace="../static/fragments/header :: header"></header>
+
+    <!-- Navigation -->
+    <nav th:replace="../static/fragments/navbar :: navbar"></nav>
+
+    <!-- Content -->
     <div class="login-form">
-      <h2>Login</h2>
       <form action="#" th:action="@{/login}" method="post">
         <table>
-          <tr>
-            <td></td>
-            <td th:if="${param.error}">Invalid username and/or password.</td>
-          </tr>
-          <tr>
-            <td><label for="user-username">Username</label></td>
-            <td><input type="text" id="username" name="username" placeholder="Username" required /></td>
-          </tr>
-          <tr>
-            <td><label for="user-password">Password</label></td>
-            <td><input type="password" id="password" name="password" placeholder="Password" required /></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><button type="submit">Submit</button></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><a href="/register">Register an account.</a></td>
-          </tr>
+          <thead>
+            <tr>
+              <td><h2>Login</h2></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td th:if="${param.error}">Invalid username and/or password.</td>
+            </tr>
+            <tr>
+              <td><input type="text" id="username" name="username" placeholder="Username" required /></td>
+            </tr>
+            <tr>
+              <td><input type="password" id="password" name="password" placeholder="Password" required /></td>
+            </tr>
+            <tr>
+              <td><button type="submit">Submit</button></td>
+            </tr>
+            <tr>
+              <td><a href="/register">Register an account.</a></td>
+            </tr>
+          </tbody>
         </table>
       </form>
     </div>
+
+    <!-- Footer -->
+    <footer th:replace="../static/fragments/footer :: footer"></footer>
+
   </body>
 </html>

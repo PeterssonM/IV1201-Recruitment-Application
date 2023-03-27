@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8">
-    <title>Tivoli</title>
-    <link type="text/css" rel="stylesheet" th:href="@{/css/recruitment.css}">
-  </head>
-  <body>
-    <!-- Navigation bar -->
-    <div class="navbar">
-      <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
-      <p class="admin" th:if="${#authorization.expression('isAuthenticated()')}">
-        <span th:text="${#authentication.name}"></span><span th:text="${#authentication.authorities}"></span>
-      </p>
-    </div>
+<html xmlns:th="http://www.thymeleaf.org"> 
 
+  <body>
+    <!-- Header -->
+    <header th:replace="../static/fragments/header :: header"></header>
+
+    <!-- Navigation -->
+    <nav th:replace="../static/fragments/navbar :: navbar"></nav>
+
+    <!-- Content -->
     <div class="welcome">
       <h1>View All Applications!</h1>
       <table>
@@ -31,5 +26,9 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Footer -->
+    <footer th:replace="../static/fragments/footer :: footer"></footer>
+    
   </body>
 </html>
