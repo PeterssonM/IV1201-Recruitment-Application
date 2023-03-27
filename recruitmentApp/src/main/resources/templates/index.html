@@ -2,20 +2,20 @@
 <html 
   lang="en" 
   xmlns:th="http://www.thymeleaf.org" 
-  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
->
-  
-
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <head>
     <meta charset="UTF-8">
     <title>Tivoli</title>
     <link type="text/css" rel="stylesheet" th:href="@{/css/recruitment.css}">
   </head>
+
   <body>
     <!-- Navigation bar -->
     <div class="navbar">
       <img src="https://media.licdn.com/dms/image/C4D03AQHatLQ14iQ1wg/profile-displayphoto-shrink_200_200/0/1667989845640?e=1683158400&v=beta&t=SJBtPXtPfGO7IVS7YqU2_D0AOUEQHO7cU_vRRbjfj6g" alt="Logo">
-      <p class="admin"><span th:text="${#authentication.name}"></span> <span th:text="${#authentication.authorities}"></span></p>
+      <p class="admin" th:if="${#authorization.expression('isAuthenticated()')}">
+        <span th:text="${#authentication.name}"></span><span th:text="${#authentication.authorities}"></span>
+      </p>
     </div>
 
     <!-- Welcome text -->
@@ -29,9 +29,6 @@
           <button class="button" onclick="location.href='/login'">Login!</button>
           <button class="button" onclick="location.href='/register'">Register as a new user!</button>
         </div>              
-        <!--/secret is used for testing-->
-        <button class="button" onclick="location.href='/secret'">Secrets await...</button>
-        
         <!--visable to role: applicant-->
         <div th:if="${#authorization.expression('hasAuthority(''applicant'')')}">
           <button class="button" onclick="location.href='/application'">Application Form!</button>
@@ -43,12 +40,5 @@
       
       </div>
     </div>
-
-    
-
-    <!--Debugging-->
-    <div th:text="${#authentication.getPrincipal()}"></div>
-    
-
   </body>
 </html>

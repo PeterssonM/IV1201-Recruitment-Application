@@ -24,6 +24,7 @@ public class AppController {
 
     @Autowired
     private PersonService personService;
+
     @Autowired
     private AppService appService;
 
@@ -52,26 +53,15 @@ public class AppController {
             return "register";
         } 
         else{
-            //System.out.println("\n1) " + person.toString());
             personService.saveUser(person);
             return "login";
         }
     }
 
-
     @GetMapping("/application")
     public String serveApplicationPage() {
         return "application";
     }
-
-   /*  @GetMapping("/viewApplications")
-    public String serveViewApplicationsPage(Model model) {
-
-        List<Person> people = personService.getAllPersons();
-        model.addAttribute("people", people);
-
-        return "viewPersons";
-    }*/
 
     @GetMapping("/viewApplications")
     public String serveViewApplicationsPage(Model model) {
@@ -86,18 +76,5 @@ public class AppController {
     public String serveErrorPage() {
         return "error";
     }
-
-    /*---Used only for testing---*/
-
-    @GetMapping("/loginSuccess")
-    public String serveLoginSuccessPage() {
-        return "loginSuccess";
-    }
-
-    @GetMapping("/secret")
-    public String serveSecretPage() {
-        return "secret";
-    }
-
 
 }

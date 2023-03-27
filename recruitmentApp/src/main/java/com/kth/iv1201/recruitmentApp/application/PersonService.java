@@ -25,13 +25,13 @@ public class PersonService implements UserDetailsService {
     public Person saveUser(Person person) throws UserAlreadyExistException {
 
         if(personRepository.findByPnr(person.getPnr()) != null)
-            throw new UserAlreadyExistException("Pnr: '" + person.getPnr() + "'. Is already in use.", "pnr");
+            throw new UserAlreadyExistException("Pnr: '" + person.getPnr() + "', is already in use.", "pnr");
 
         if(personRepository.findByEmail(person.getEmail()) != null)
-            throw new UserAlreadyExistException("Email: '" + person.getEmail() + "'. Is already in use.", "email");
+            throw new UserAlreadyExistException("Email: '" + person.getEmail() + "', is already in use.", "email");
  
         if(personRepository.findByUsername(person.getUsername()) != null)
-            throw new UserAlreadyExistException("Username: '" + person.getUsername() + "'. Is already in use.", "username");
+            throw new UserAlreadyExistException("Username: '" + person.getUsername() + "', is already in use.", "username");
         
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -41,7 +41,6 @@ public class PersonService implements UserDetailsService {
         role.setRoleId(1);
         person.setRole(role);
 
-        //System.out.println("\n2) " + person.toString());
         personRepository.save(person);
         return person;
     }
@@ -53,7 +52,6 @@ public class PersonService implements UserDetailsService {
         if(person == null)
             throw new UsernameNotFoundException(username);
         else{
-            System.out.println("The person found: " + person.toString());
             return person; 
         }
     }
