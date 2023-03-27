@@ -2,6 +2,8 @@ package com.kth.iv1201.recruitmentApp.presentation;
 
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,7 @@ public class AppController {
         } 
         else{
             personService.saveUser(person);
-            return "login";
+            return "redirect:/login";
         }
     }
 
@@ -71,6 +73,13 @@ public class AppController {
 
         return "viewApplications";
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) throws ServletException {
+        request.logout();
+        return "redirect:/login?logout";
+    }
+
 
     @GetMapping("/error")
     public String serveErrorPage() {
