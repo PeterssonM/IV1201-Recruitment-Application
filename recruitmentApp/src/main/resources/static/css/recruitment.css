@@ -3,6 +3,9 @@
     background-color: #f5f5dc;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
   input[type="text"],
   input[type="email"],
@@ -38,11 +41,17 @@
   
 /* --- NAVBAR --- */
   nav {
-    background-color: #333;
-    color: #fff;
+    background-color: #f8cd89;
+    color: white;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
   }
   .logo a {
     display: flex;
@@ -57,6 +66,7 @@
   .user {
     display: flex;
     align-items: center;
+    margin-right: 30px;
   }
   .user span {
     margin-right: 10px;
@@ -78,13 +88,21 @@
   .welcome {
     text-align: center;
     margin-top: 80px;
+    margin-bottom: 80px;
     font-size: 24px;
     color: #333333;
+  }
+  .introduction {
+    width: 512px; /*Same value as image (512px).*/
+    margin: 0 auto;
+    text-align: left;
   }
   .button-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 40px;
+
   }
   .button {
     border: none;
@@ -109,8 +127,7 @@
     justify-content: center;
     height: 500px;
     width: 400px;
-    margin: 0 auto;
-    margin-top: 100px;
+    margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #fff;
@@ -132,8 +149,7 @@
     justify-content: center;
     height: 500px;
     width: 400px;
-    margin: 0 auto;
-    margin-top: 100px;
+    margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     background-color: #fff;
@@ -145,14 +161,20 @@
     font-size: 12px;
     padding: 2px;
   }
+
+/* --- VIEWAPPLICATIONS.html --- */
+  .applications {
+    text-align: left;
+  }
   
 /* --- FOOTER --- */
   footer {
-    position: fixed;
+    margin-top: auto;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #f8cd89;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -162,5 +184,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .authors {
+    text-align: left;
+    list-style: none;
   }
   

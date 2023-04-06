@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.kth.iv1201.recruitmentApp.domain.CompetenceProfile;
 
+/**
+ * Repository interface for managing {@link CompetenceProfile} entities in the database.
+ */
 @Repository
-public interface CompetenceProfileRepository extends JpaRepository<CompetenceProfile, Integer> {
-}
+public interface CompetenceProfileRepository extends JpaRepository<CompetenceProfile, Integer> {}
 

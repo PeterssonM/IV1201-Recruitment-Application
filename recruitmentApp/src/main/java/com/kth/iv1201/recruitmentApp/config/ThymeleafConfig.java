@@ -9,6 +9,9 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+/**
+ * This class is a configuration class for Thymeleaf template engine and view resolver.
+ */
 
 @Configuration
 public class ThymeleafConfig {
@@ -16,6 +19,11 @@ public class ThymeleafConfig {
     @Autowired
     private ApplicationContext applicationContext;
 
+    /**
+     * Configuration for the Thymeleaf template engine.
+     *
+     * @return SpringTemplateEngine object with a template resolver and Spring Security dialect
+     */
     @Bean
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
@@ -25,6 +33,11 @@ public class ThymeleafConfig {
         return engine;
     }
 
+    /**
+     * Configuration for the SpringResourceTemplateResolver which resolves the HTML templates.
+     *
+     * @return SpringResourceTemplateResolver object with classpath as prefix, HTML as suffix and UTF-8 encoding
+     */
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
@@ -36,6 +49,11 @@ public class ThymeleafConfig {
         return resolver;
     }
 
+    /**
+     * Configuration for the ThymeleafViewResolver which resolves the Thymeleaf views.
+     *
+     * @return ThymeleafViewResolver object with UTF-8 encoding
+     */
     @Bean
     public ThymeleafViewResolver thymeleafViewResolver() {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();

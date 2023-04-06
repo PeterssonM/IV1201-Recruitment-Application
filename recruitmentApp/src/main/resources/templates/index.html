@@ -11,20 +11,32 @@
     <!-- Content -->
     <div class="welcome">
       <h1>Welcome to Tivoli!</h1>
-      <p>This is the starting page of the website.</p>
+      <img th:src="@{/image/logo.png}" alt="Logo">
+      
       <div class="button-container">
         <div th:if="${not #authorization.expression('isAuthenticated()')}">
-          <button class="button" onclick="location.href='/login'">Login</button>
-          <button class="button" onclick="location.href='/register'">Register a new user</button>
+          <button class="button" onclick="location.href='/login'">Login!</button>
+          <button class="button" onclick="location.href='/register'">Register as a new user!</button>
         </div>              
-        <div th:if="${#authorization.expression('hasAuthority(''applicant'')')}">
-          <button class="button" onclick="location.href='/application'">Application Form!</button>
-        </div>
-        <div th:if="${#authorization.expression('hasAuthority(''recruiter'')')}">
-          <button class="button" onclick="location.href='/viewApplications'">View Application Forms!</button>
-        </div>
       </div>
+      <div th:if="${#authorization.expression('hasAuthority(''applicant'')')}">
+        <button class="button" onclick="location.href='/application'">Application Form!</button>
+      </div>
+      <div th:if="${#authorization.expression('hasAuthority(''recruiter'')')}">
+        <button class="button" onclick="location.href='/viewApplications'">View Application Forms!</button>
+      </div>
+
+      <div class="introduction">
+        <h2>Website description</h2>
+        <p>The following text provides information about Tivoli, a web application designed for the purpose of facilitating the recruitment process for a company.</p>
+        <p>This website was developed by Daniel Mebrahtu Redi and Maximilian Petersson as part of their IV1201 VT23 'Architecture and design of global applications' project.</p>
+        <p>The Tivoli web application is intended to serve as a platform for job applicants to apply for positions within the company and for recruiters to manage the applications.</p>
+        <p>To use the application, users are required to log in using their Tivoli account. In case a user does not have a Tivoli account, they can easily register as a new user by clicking on the appropriate button.</p>  
+      </div>
+
     </div>
+
+
 
     <!-- Footer -->
     <footer th:replace="../static/fragments/footer :: footer"></footer>

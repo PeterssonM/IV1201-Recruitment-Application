@@ -14,13 +14,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.kth.iv1201.recruitmentApp.application.AppService;
+import com.kth.iv1201.recruitmentApp.application.ApplicationService;
 import com.kth.iv1201.recruitmentApp.application.PersonService;
 import com.kth.iv1201.recruitmentApp.domain.Application;
 import com.kth.iv1201.recruitmentApp.domain.Person;
 import com.kth.iv1201.recruitmentApp.util.UserAlreadyExistException;
 
-
+/**
+ * Handles all HTTP requests. 
+ */
 @Controller
 public class AppController {
 
@@ -28,7 +30,7 @@ public class AppController {
     private PersonService personService;
 
     @Autowired
-    private AppService appService;
+    private ApplicationService applicationService;
 
     @GetMapping("/")
     public String serveHomePage() {
@@ -41,7 +43,7 @@ public class AppController {
     }
     @PostMapping("/login")
     public String retriveLoginPage() {
-            return "loginSuccess";
+            return "redirect:/loginSuccess";
     }
 
     @GetMapping("/register")
@@ -68,7 +70,7 @@ public class AppController {
     @GetMapping("/viewApplications")
     public String serveViewApplicationsPage(Model model) {
 
-        List<Application> applications = appService.getAllApplications();
+        List<Application> applications = applicationService.getAllApplications();
         model.addAttribute("applications", applications);
 
         return "viewApplications";

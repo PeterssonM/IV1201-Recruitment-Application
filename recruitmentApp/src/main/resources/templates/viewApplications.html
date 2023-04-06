@@ -11,17 +11,21 @@
     <!-- Content -->
     <div class="welcome">
       <h1>View All Applications!</h1>
-      <table>
+      <table class="applications">
         <thead>
           <tr>
             <th>Name</th>
             <th>Surname</th>
+            <th>Status</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr th:each="app : ${applications}">
             <td th:text="${app.name}"></td>
             <td th:text="${app.surname}"></td>
+            <td th:text="${app.status}"></td>
+            <td> <button type="button">view</button> </td>
           </tr>
         </tbody>
       </table>
