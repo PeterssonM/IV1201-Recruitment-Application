@@ -24,7 +24,7 @@ import com.kth.iv1201.recruitmentApp.util.UserAlreadyExistException;
  * Handles all HTTP requests. 
  */
 @Controller
-public class AppController {
+public class ApplicationController {
 
     @Autowired
     private PersonService personService;

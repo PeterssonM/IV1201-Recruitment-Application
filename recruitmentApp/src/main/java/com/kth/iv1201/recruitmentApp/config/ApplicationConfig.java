@@ -16,7 +16,7 @@ import org.springframework.web.servlet.resource.PathResourceResolver;
  */
 @EnableWebMvc
 @Configuration
-public class AppConfig implements WebMvcConfigurer, ApplicationContextAware{
+public class ApplicationConfig implements WebMvcConfigurer, ApplicationContextAware{
 
     private ApplicationContext applicationContext;
 
