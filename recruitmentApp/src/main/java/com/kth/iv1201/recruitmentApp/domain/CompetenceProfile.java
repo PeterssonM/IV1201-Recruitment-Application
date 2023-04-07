@@ -11,14 +11,19 @@ import java.math.BigDecimal;
  */
 @Entity
 @Table(name="competence_profile")
-@NamedQuery(name="CompetenceProfile.findAll", query="SELECT c FROM CompetenceProfile c")
 public class CompetenceProfile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+    /**
+     * The competence profile ID.
+     */
 	@Id
 	@Column(name="competence_profile_id")
 	private Integer competenceProfileId;
 
+    /**
+     * The number of years of experience.
+     */
 	@Column(name="years_of_experience")
 	private BigDecimal yearsOfExperience;
 
@@ -32,37 +37,80 @@ public class CompetenceProfile implements Serializable {
 	@JoinColumn(name="person_id")
 	private Person person;
 
-	public CompetenceProfile() {
-	}
 
+	/**
+	 * Required by JPA, should not be used.
+	 */
+	public CompetenceProfile() {}
+
+	/**
+	 * Gets the competence profile id of this CompetenceProfile.
+	 *
+	 * @return the competence profile id of this CompetenceProfile
+	 */
 	public Integer getCompetenceProfileId() {
 		return this.competenceProfileId;
 	}
 
+	/**
+	 * Sets the competence profile id of this CompetenceProfile.
+	 *
+	 * @param competenceProfileId the new competence profile id for this CompetenceProfile
+	 */
 	public void setCompetenceProfileId(Integer competenceProfileId) {
 		this.competenceProfileId = competenceProfileId;
 	}
 
+	/**
+	 * Gets the years of experience of this CompetenceProfile.
+	 *
+	 * @return the years of experience of this CompetenceProfile
+	 */
 	public BigDecimal getYearsOfExperience() {
 		return this.yearsOfExperience;
 	}
 
+	/**
+	 * Sets the years of experience of this CompetenceProfile.
+	 *
+	 * @param yearsOfExperience the new years of experience for this CompetenceProfile
+	 */
 	public void setYearsOfExperience(BigDecimal yearsOfExperience) {
 		this.yearsOfExperience = yearsOfExperience;
 	}
 
+	/**
+	 * Gets the competence of this CompetenceProfile.
+	 *
+	 * @return the competence of this CompetenceProfile
+	 */
 	public Competence getCompetence() {
 		return this.competence;
 	}
 
+	/**
+	 * Sets the competence of this CompetenceProfile.
+	 *
+	 * @param competence the new competence for this CompetenceProfile
+	 */
 	public void setCompetence(Competence competence) {
 		this.competence = competence;
 	}
 
+	/**
+	 * Gets the person of this CompetenceProfile.
+	 *
+	 * @return the person of this CompetenceProfile
+	 */
 	public Person getPerson() {
 		return this.person;
 	}
 
+	/**
+	 * Sets the person of this CompetenceProfile.
+	 *
+	 * @param person the new person for this CompetenceProfile
+	 */
 	public void setPerson(Person person) {
 		this.person = person;
 	}

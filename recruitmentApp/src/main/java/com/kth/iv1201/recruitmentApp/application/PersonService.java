@@ -50,7 +50,7 @@ public class PersonService implements UserDetailsService {
         person.setPassword(encoder.encode(person.getPassword()));
         
         Role role = new Role();
-        role.setRoleId(1);
+        role.setRoleId(2);
         person.setRole(role);
 
         personRepository.save(person);
