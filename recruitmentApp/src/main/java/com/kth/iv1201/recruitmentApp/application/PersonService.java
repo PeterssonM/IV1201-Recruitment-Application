@@ -34,6 +34,7 @@ public class PersonService implements UserDetailsService {
      * @return The saved person object.
      * @throws UserAlreadyExistException If a user with the same pnr, email, or username already exists.
      */
+    // @Transactional
     public Person saveUser(Person person) throws UserAlreadyExistException {
 
         if(personRepository.findByPnr(person.getPnr()) != null)
